@@ -10,6 +10,7 @@ class JapanPage extends StatelessWidget {
         List.generate(6, (index) => new TextEditingController());
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
         onPressed: () => Get.defaultDialog(
             title: 'Form novel jepang',
             middleText: '',

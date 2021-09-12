@@ -11,10 +11,12 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       body: GestureDetector(
         onTap: () => Get.to(JapanPage()),
-        child: Container(
-          width: 200,
-          height: 200,
-          color: Colors.blue,
+        child: Center(
+          child: Container(
+            width: 200,
+            height: 200,
+            color: Colors.blue,
+          ),
         ),
       ),
     );
