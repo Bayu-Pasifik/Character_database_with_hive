@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
 
 class CountryCard extends StatelessWidget {
-  const CountryCard({Key? key}) : super(key: key);
+  final String pathAsset;
+  final Function moveFunction;
+  const CountryCard(
+      {Key? key, required this.pathAsset, required this.moveFunction})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    String? pathAssets;
-    return Container(
-      width: MediaQuery.of(context).size.width / 12,
-      height: MediaQuery.of(context).size.height / 20,
-      decoration: BoxDecoration(
-          color: Colors.grey,
-          image: DecorationImage(image: AssetImage(pathAssets!))),
+    return Material(
+      borderRadius: BorderRadius.circular(15),
+      elevation: 10,
+      child: GestureDetector(
+        onTap: () {
+          moveFunction();
+        },
+        child: Container(
+          width: 165,
+          height: 140,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              shape: BoxShape.rectangle,
+              image: DecorationImage(
+                  image: AssetImage(pathAsset), fit: BoxFit.cover)),
+        ),
+      ),
     );
   }
 }

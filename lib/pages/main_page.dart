@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive_character/ui/country_card.dart';
 
 import 'japan_page.dart';
 
@@ -9,14 +10,19 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GestureDetector(
-        onTap: () => Get.to(JapanPage()),
-        child: Center(
-          child: Container(
-            width: 200,
-            height: 200,
-            color: Colors.blue,
-          ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GestureDetector(
+                onTap: () => Get.to(JapanPage()),
+                child: CountryCard(
+                  pathAsset: 'images/china.png',
+                  moveFunction: () {
+                    Get.to(JapanPage());
+                  },
+                )),
+          ],
         ),
       ),
     );
