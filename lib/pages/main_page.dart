@@ -21,6 +21,8 @@ class MainPage extends StatelessWidget {
                   moveFunction: () {
                     Get.to(JapanPage());
                   },
+                  ballColor: Colors.amber,
+                  images: 'images/character_2.svg',
                 )),
           ],
         ),
