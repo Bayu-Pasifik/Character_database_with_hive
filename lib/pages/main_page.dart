@@ -22,7 +22,8 @@ class MainPage extends StatelessWidget {
                     Get.to(JapanPage());
                   },
                   ballColor: Colors.amber,
-                  images: 'images/character_2.svg',
+                  images: 'images/people1.svg',
+                  title: 'Novel Jepang',
                 )),
           ],
         ),
