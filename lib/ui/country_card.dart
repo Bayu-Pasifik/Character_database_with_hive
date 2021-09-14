@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CountryCard extends StatelessWidget {
-  final String pathAsset;
   final Function moveFunction;
   final String images;
   final Color ballColor;
   final String title;
-  //final String content;
-  const CountryCard({
-    Key? key,
-    required this.pathAsset,
-    required this.moveFunction,
-    required this.images,
-    required this.ballColor,
-    required this.title,
-  }) : super(key: key);
+  final String content;
+  const CountryCard(
+      {Key? key,
+      required this.moveFunction,
+      required this.images,
+      required this.ballColor,
+      required this.title,
+      required this.content})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,8 @@ class CountryCard extends StatelessWidget {
           width: MediaQuery.of(context).size.width - 90,
           height: MediaQuery.of(context).size.height - 600,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
+            color: Color(0xfffbf5ea),
+            borderRadius: BorderRadius.circular(180),
           ),
           child: Stack(
             children: [
@@ -73,6 +73,13 @@ class CountryCard extends StatelessWidget {
                   ),
                 ),
               ),
+              Positioned(
+                  top: 100,
+                  left: 2,
+                  child: Text(
+                    content,
+                    style: TextStyle(fontSize: 15, color: Colors.black87),
+                  ))
             ],
           ),
         ),

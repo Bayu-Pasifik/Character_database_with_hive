@@ -17,13 +17,13 @@ class MainPage extends StatelessWidget {
             GestureDetector(
                 onTap: () => Get.to(JapanPage()),
                 child: CountryCard(
-                  pathAsset: 'images/china.png',
                   moveFunction: () {
                     Get.to(JapanPage());
                   },
                   ballColor: Colors.amber,
                   images: 'images/people1.svg',
                   title: 'Novel Jepang',
+                  content: 'Kumpulan nama nama \ncharacter  dari novel jepang',
                 )),
           ],
         ),
