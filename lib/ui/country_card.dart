@@ -53,7 +53,7 @@ class CountryCard extends StatelessWidget {
                   fit: BoxFit.cover,
                   height: MediaQuery.of(context).size.height - 600,
                   width: MediaQuery.of(context).size.width - 90,
-                  color: Colors.blue,
+                  //color: Colors.blue,
                 ),
               ),
               Positioned(
