@@ -11,7 +11,7 @@ class JapanPage extends StatefulWidget {
 
 class _JapanPageState extends State<JapanPage> {
   List<TextEditingController> mycontroller =
-      List.generate(6, (index) => new TextEditingController());
+      List.generate(9, (index) => new TextEditingController());
   @override
   void dispose() {
     mycontroller[0].dispose();
@@ -20,6 +20,9 @@ class _JapanPageState extends State<JapanPage> {
     mycontroller[3].dispose();
     mycontroller[4].dispose();
     mycontroller[5].dispose();
+    mycontroller[6].dispose();
+    mycontroller[7].dispose();
+    mycontroller[8].dispose();
     super.dispose();
   }
 
@@ -39,28 +42,46 @@ class _JapanPageState extends State<JapanPage> {
                 },
                 style: TextButton.styleFrom(primary: Colors.red),
                 child: Text("Cancle")),
-            content: SingleChildScrollView(
-              child: Column(
+            content: Container(
+              height: MediaQuery.of(context).size.height - 500,
+              width: MediaQuery.of(context).size.width - 150,
+              child: ListView(
                 children: [
                   TextField(
                     controller: mycontroller[0],
-                    decoration: InputDecoration(labelText: 'name'),
+                    decoration: InputDecoration(labelText: 'Name'),
                   ),
                   TextField(
                     controller: mycontroller[1],
-                    decoration: InputDecoration(labelText: 'description'),
+                    decoration: InputDecoration(labelText: 'Description'),
                   ),
                   TextField(
                     controller: mycontroller[2],
-                    decoration: InputDecoration(labelText: 'genre'),
+                    decoration: InputDecoration(labelText: 'Gender'),
                   ),
                   TextField(
                     controller: mycontroller[3],
-                    decoration: InputDecoration(labelText: 'status'),
+                    decoration: InputDecoration(labelText: 'Status'),
                   ),
                   TextField(
                     controller: mycontroller[4],
-                    decoration: InputDecoration(labelText: 'Current Chapter'),
+                    decoration: InputDecoration(labelText: 'Age'),
+                  ),
+                  TextField(
+                    controller: mycontroller[5],
+                    decoration: InputDecoration(labelText: 'Race'),
+                  ),
+                  TextField(
+                    controller: mycontroller[6],
+                    decoration: InputDecoration(labelText: 'Current Power'),
+                  ),
+                  TextField(
+                    controller: mycontroller[7],
+                    decoration: InputDecoration(labelText: 'Relationship'),
+                  ),
+                  TextField(
+                    controller: mycontroller[8],
+                    decoration: InputDecoration(labelText: 'Novel Name'),
                   ),
                 ],
               ),
