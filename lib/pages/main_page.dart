@@ -16,47 +16,57 @@ class MainPage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GestureDetector(
-                onTap: () => Get.to(JapanPage()),
-                child: CountryCard(
-                  moveFunction: () {
-                    Get.to(JapanPage());
-                  },
-                  ballColor: Colors.amber,
-                  images: 'images/people1.svg',
-                  title: 'Novel Jepang',
-                  content: 'Kumpulan nama nama \ncharacter  dari novel jepang',
-                )),
+            Expanded(
+              flex: 1,
+              child: GestureDetector(
+                  onTap: () => Get.to(JapanPage()),
+                  child: CountryCard(
+                    moveFunction: () {
+                      Get.to(() => JapanPage());
+                    },
+                    ballColor: Colors.amber,
+                    images: 'images/people1.svg',
+                    title: 'Novel Jepang',
+                    content:
+                        'Kumpulan nama nama \ncharacter  dari novel jepang',
+                  )),
+            ),
             SizedBox(
               height: 20,
             ),
-            GestureDetector(
-                onTap: () => Get.to(JapanPage()),
-                child: CountryCard(
-                  moveFunction: () {
-                    Get.to(JapanPage());
-                  },
-                  ballColor: Colors.teal,
-                  images: 'images/people2.svg',
-                  title: 'Novel Korea',
-                  content: 'Kumpulan nama nama \ncharacter  dari novel korea',
-                )),
+            Expanded(
+              flex: 1,
+              child: GestureDetector(
+                  onTap: () => Get.to(JapanPage()),
+                  child: CountryCard(
+                    moveFunction: () {
+                      Get.to(JapanPage());
+                    },
+                    ballColor: Colors.teal,
+                    images: 'images/people2.svg',
+                    title: 'Novel Korea',
+                    content: 'Kumpulan nama nama \ncharacter  dari novel korea',
+                  )),
+            ),
             SizedBox(
               height: 20,
             ),
-            GestureDetector(
-                onTap: () => Get.to(JapanPage()),
-                child: CountryCard(
-                  moveFunction: () {
-                    Get.to(JapanPage());
-                  },
-                  ballColor: Colors.cyan,
-                  images: 'images/people3.svg',
-                  title: 'Novel China',
-                  content: 'Kumpulan nama nama \ncharacter  dari novel china',
-                )),
+            Expanded(
+              flex: 1,
+              child: GestureDetector(
+                  onTap: () => Get.to(JapanPage()),
+                  child: CountryCard(
+                    moveFunction: () {
+                      Get.to(JapanPage());
+                    },
+                    ballColor: Colors.cyan,
+                    images: 'images/people3.svg',
+                    title: 'Novel China',
+                    content: 'Kumpulan nama nama \ncharacter  dari novel china',
+                  )),
+            ),
           ],
         ),
       ),

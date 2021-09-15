@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_character/model/japan_character.dart';
+import 'package:path_provider/path_provider.dart' as pathProvider;
 
 class JapanPage extends StatefulWidget {
   const JapanPage({Key? key}) : super(key: key);
@@ -11,9 +12,17 @@ class JapanPage extends StatefulWidget {
 }
 
 class _JapanPageState extends State<JapanPage> {
-  final japaneseCharacter = Hive.openBox('jcharacter');
   List<TextEditingController> mycontroller =
       List.generate(9, (index) => new TextEditingController());
+
+  Future _openBox() async {
+    var appDocumentDirectory =
+        await pathProvider.getApplicationDocumentsDirectory();
+    Hive.init(appDocumentDirectory.path);
+    Hive.registerAdapter(JapanCharacterAdapter());
+    Hive.openBox('japan');
+  }
+
   @override
   void dispose() {
     mycontroller[0].dispose();
@@ -30,16 +39,18 @@ class _JapanPageState extends State<JapanPage> {
 
   @override
   Widget build(BuildContext context) {
-    Hive.registerAdapter(JapanCharacterAdapter());
     return FutureBuilder(
-      future: japaneseCharacter,
+      future: _openBox(),
       builder: (context, snapshot) {
-        final jcharcter = Hive.box('jcharcters');
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasError) {
             return Text(snapshot.hasError.toString());
           } else {
-            return Scaffold();
+            return Scaffold(
+              appBar: AppBar(
+                title: Text("Error"),
+              ),
+            );
           }
         } else {
           return Scaffold(
@@ -50,7 +61,7 @@ class _JapanPageState extends State<JapanPage> {
                   middleText: '',
                   confirm: TextButton(
                       onPressed: () {
-                        final japancharacter = Hive.box('jcharacters');
+                        final japancharacter = Hive.box('japan');
                         japancharacter.add(mycontroller[0].text);
                         japancharacter.add(mycontroller[1].text);
                         japancharacter.add(mycontroller[2].text);
@@ -115,18 +126,22 @@ class _JapanPageState extends State<JapanPage> {
                     ),
                   )),
             ),
-            body: ListView.builder(
-                itemCount: jcharcter.length,
-                itemBuilder: (context, index) {
-                  final japansechara =
-                      Hive.box('jcharacters') as JapanCharacter;
-                  return ListTile(
-                    title: Text(japansechara.name),
-                  );
-                }),
+            body: _listviewBuilder(),
           );
         }
       },
     );
+  }
+
+  ListView _listviewBuilder() {
+    final japan = Hive.box('japan');
+    return ListView.builder(
+        itemCount: japan.length,
+        itemBuilder: (context, index) {
+          final japansechara = Hive.box('japan') as JapanCharacter;
+          return ListTile(
+            title: Text(japansechara.name),
+          );
+        });
   }
 }
