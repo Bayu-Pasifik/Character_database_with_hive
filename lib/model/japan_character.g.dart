@@ -8,7 +8,7 @@ part of 'japan_character.dart';
 
 class JapanCharacterAdapter extends TypeAdapter<JapanCharacter> {
   @override
-  final int typeId = 1;
+  final int typeId = 15;
 
   @override
   JapanCharacter read(BinaryReader reader) {
@@ -17,15 +17,15 @@ class JapanCharacterAdapter extends TypeAdapter<JapanCharacter> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return JapanCharacter(
-      fields[0] as String,
-      fields[1] as String,
-      fields[2] as String,
-      fields[3] as String,
-      fields[4] as int,
-      fields[5] as String,
-      fields[6] as String,
-      fields[7] as String,
-      fields[8] as String,
+      fields[10] as String,
+      fields[11] as String,
+      fields[12] as String,
+      fields[13] as String,
+      fields[14] as int,
+      fields[15] as String,
+      fields[16] as String,
+      fields[17] as String,
+      fields[18] as String,
     );
   }
 
@@ -33,23 +33,23 @@ class JapanCharacterAdapter extends TypeAdapter<JapanCharacter> {
   void write(BinaryWriter writer, JapanCharacter obj) {
     writer
       ..writeByte(9)
-      ..writeByte(0)
+      ..writeByte(10)
       ..write(obj.name)
-      ..writeByte(1)
+      ..writeByte(11)
       ..write(obj.description)
-      ..writeByte(2)
+      ..writeByte(12)
       ..write(obj.gender)
-      ..writeByte(3)
+      ..writeByte(13)
       ..write(obj.status)
-      ..writeByte(4)
+      ..writeByte(14)
       ..write(obj.age)
-      ..writeByte(5)
+      ..writeByte(15)
       ..write(obj.race)
-      ..writeByte(6)
+      ..writeByte(16)
       ..write(obj.power)
-      ..writeByte(7)
+      ..writeByte(17)
       ..write(obj.relationship)
-      ..writeByte(8)
+      ..writeByte(18)
       ..write(obj.novelName);
   }
 

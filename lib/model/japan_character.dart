@@ -2,25 +2,25 @@ import 'package:hive/hive.dart';
 
 part 'japan_character.g.dart';
 
-@HiveType(typeId: 1)
+@HiveType(typeId: 15)
 class JapanCharacter {
-  @HiveField(0)
+  @HiveField(10)
   final String name;
-  @HiveField(1)
+  @HiveField(11)
   final String description;
-  @HiveField(2)
+  @HiveField(12)
   final String gender;
-  @HiveField(3)
+  @HiveField(13)
   final String status;
-  @HiveField(4)
+  @HiveField(14)
   final int age;
-  @HiveField(5)
+  @HiveField(15)
   final String race;
-  @HiveField(6)
+  @HiveField(16)
   final String power;
-  @HiveField(7)
+  @HiveField(17)
   final String relationship;
-  @HiveField(8)
+  @HiveField(18)
   final String novelName;
 
   JapanCharacter(this.name, this.description, this.gender, this.status,

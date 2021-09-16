@@ -18,6 +18,11 @@ class CountryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ! padding top adalah tempat dimaan baterai berada
+    final containerWidth =
+        MediaQuery.of(context).size.width - MediaQuery.of(context).padding.top;
+    final containerHeight =
+        MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
     return Material(
       borderRadius: BorderRadius.circular(15),
       elevation: 10,
@@ -26,8 +31,8 @@ class CountryCard extends StatelessWidget {
           moveFunction();
         },
         child: Container(
-          width: MediaQuery.of(context).size.width - 90,
-          height: MediaQuery.of(context).size.height - 600,
+          width: containerWidth * 0.5,
+          height: containerHeight * 0.5,
           decoration: BoxDecoration(
             color: Color(0xfffbf5ea),
             borderRadius: BorderRadius.circular(180),
@@ -40,8 +45,8 @@ class CountryCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(180),
                   child: Container(
-                    width: 200,
-                    height: 200,
+                    width: containerWidth * 0.5,
+                    height: containerHeight * 0.5,
                     color: ballColor,
                   ),
                 ),
@@ -51,8 +56,8 @@ class CountryCard extends StatelessWidget {
                 child: SvgPicture.asset(
                   images,
                   fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height - 600,
-                  width: MediaQuery.of(context).size.width - 90,
+                  height: containerWidth * 0.5,
+                  width: containerHeight * 0.5,
                   //color: Colors.blue,
                 ),
               ),
